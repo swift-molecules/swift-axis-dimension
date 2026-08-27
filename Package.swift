@@ -1,0 +1,70 @@
+// swift-tools-version: 6.4
+
+import PackageDescription
+
+let package = Package(
+    name: "swift-dimension-axis",
+    platforms: [
+        .macOS(.v27),
+        .iOS(.v27),
+        .tvOS(.v27),
+        .watchOS(.v27),
+        .visionOS(.v27),
+    ],
+    products: [
+        .library(
+            name: "Dimension Axis",
+            targets: ["Dimension Axis"]
+        ),
+    ],
+    dependencies: [
+        .package(
+            url: "https://github.com/swift-molecules/swift-dimension.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-atoms/swift-axis.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-atoms/swift-direction.git",
+            branch: "main"
+        ),
+    ],
+    targets: [
+        .target(
+            name: "Dimension Axis",
+            dependencies: [
+                .product(name: "Dimension", package: "swift-dimension"),
+                .product(name: "Axis", package: "swift-axis"),
+                .product(name: "Direction", package: "swift-direction"),
+            ]
+        ),
+        .testTarget(
+            name: "Dimension Axis Tests",
+            dependencies: [
+                "Dimension Axis",
+                .product(name: "Dimension", package: "swift-dimension"),
+                .product(name: "Axis", package: "swift-axis"),
+                .product(name: "Direction", package: "swift-direction"),
+            ]
+        ),
+    ],
+    swiftLanguageModes: [.v6]
+)
+
+for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
+    let ecosystem: [SwiftSetting] = [
+        .strictMemorySafety(),
+        .enableUpcomingFeature("ExistentialAny"),
+        .enableUpcomingFeature("InternalImportsByDefault"),
+        .enableUpcomingFeature("MemberImportVisibility"),
+        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+        .enableExperimentalFeature("Lifetimes"),
+        .enableUpcomingFeature("InferIsolatedConformances"),
+    ]
+
+    let package: [SwiftSetting] = []
+
+    target.swiftSettings = (target.swiftSettings ?? []) + ecosystem + package
+}
