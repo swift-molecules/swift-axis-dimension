@@ -1,7 +1,10 @@
-public import Axis
-public import Direction
+@_exported public import Axis
+@_exported public import Direction
+
+@_documentation(visibility: internal)
+public typealias _AxisDirection = Direction
 
 extension Axis {
 
-    public typealias Direction = Direction.Direction
+    public typealias Direction = _AxisDirection
 }

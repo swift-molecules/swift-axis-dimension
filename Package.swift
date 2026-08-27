@@ -19,7 +19,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-dimension.git",
+            url: "https://github.com/swift-atoms/swift-dimension.git",
             branch: "main"
         ),
         .package(
@@ -43,10 +43,7 @@ let package = Package(
         .testTarget(
             name: "Dimension Axis Tests",
             dependencies: [
-                "Dimension Axis",
-                .product(name: "Dimension", package: "swift-dimension"),
-                .product(name: "Axis", package: "swift-axis"),
-                .product(name: "Direction", package: "swift-direction"),
+                "Dimension Axis"
             ]
         ),
     ],

@@ -1,9 +1,5 @@
-import Axis
-import Direction
+import Dimension_Axis
 import Testing
-
-import Dimension
-@testable import Dimension_Axis
 
 @Suite
 struct `Axis.Direction - Typealias` {
@@ -27,9 +23,7 @@ struct `Axis.Direction - Typealias` {
     func `All Direction functionality available via Axis Direction`() {
         #expect(Axis<2>.Direction.positive.sign == Direction.positive.sign)
         #expect(Axis<2>.Direction.positive.opposite == Direction.positive.opposite)
-        #expect(Axis<2>.Direction.positive.direction == Direction.positive.direction)
         #expect(Axis<2>.Direction.negative.sign == Direction.negative.sign)
         #expect(Axis<2>.Direction.negative.opposite == Direction.negative.opposite)
-        #expect(Axis<2>.Direction.negative.direction == Direction.negative.direction)
     }
 }

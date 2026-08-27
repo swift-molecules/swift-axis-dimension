@@ -1,5 +1,5 @@
-public import Dimension
-public import Axis
+@_exported public import Dimension
+@_exported public import Axis
 
 extension Axis where N == 4 {
 
