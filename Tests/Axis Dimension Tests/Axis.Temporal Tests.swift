@@ -1,4 +1,6 @@
-import Dimension_Axis
+import Axis
+import Axis_Dimension
+import Dimension
 import Testing
 
 @Suite

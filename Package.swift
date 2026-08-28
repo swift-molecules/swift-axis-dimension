@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-dimension-axis",
+    name: "swift-axis-dimension",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Dimension Axis",
-            targets: ["Dimension Axis"]
+            name: "Axis Dimension",
+            targets: ["Axis Dimension"]
         ),
     ],
     dependencies: [
@@ -26,24 +26,21 @@ let package = Package(
             url: "https://github.com/swift-atoms/swift-axis.git",
             branch: "main"
         ),
-        .package(
-            url: "https://github.com/swift-atoms/swift-direction.git",
-            branch: "main"
-        ),
     ],
     targets: [
         .target(
-            name: "Dimension Axis",
+            name: "Axis Dimension",
             dependencies: [
                 .product(name: "Dimension", package: "swift-dimension"),
                 .product(name: "Axis", package: "swift-axis"),
-                .product(name: "Direction", package: "swift-direction"),
             ]
         ),
         .testTarget(
-            name: "Dimension Axis Tests",
+            name: "Axis Dimension Tests",
             dependencies: [
-                "Dimension Axis"
+                .target(name: "Axis Dimension"),
+                .product(name: "Dimension", package: "swift-dimension"),
+                .product(name: "Axis", package: "swift-axis"),
             ]
         ),
     ],
