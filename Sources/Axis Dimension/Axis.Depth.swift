@@ -1,7 +1,7 @@
 public import Axis
-public import Dimension
+public import Direction
 
 extension Axis where N == 3 {
 
-    public typealias Depth = Dimension.Depth
+    public typealias Depth = Direction::Depth
 }

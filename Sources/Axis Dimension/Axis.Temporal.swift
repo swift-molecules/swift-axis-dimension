@@ -1,7 +1,7 @@
 public import Axis
-public import Dimension
+public import Direction
 
 extension Axis where N == 4 {
 
-    public typealias Temporal = Dimension.Temporal
+    public typealias Temporal = Direction::Temporal
 }

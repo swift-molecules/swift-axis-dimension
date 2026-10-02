@@ -1,6 +1,6 @@
 import Axis
 import Axis_Dimension
-import Dimension
+import Direction
 import Testing
 
 @Suite

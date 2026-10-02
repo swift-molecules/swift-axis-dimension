@@ -19,7 +19,7 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-atoms/swift-spatial.git",
+            url: "https://github.com/swift-atoms/swift-direction.git",
             branch: "main"
         ),
         .package(
@@ -31,14 +31,15 @@ let package = Package(
         .target(
             name: "Axis Dimension",
             dependencies: [
-                .product(name: "Spatial", package: "swift-spatial"),
+                .product(name: "Direction", package: "swift-direction"),
                 .product(name: "Axis", package: "swift-axis"),
             ]
         ),
         .testTarget(
             name: "Axis Dimension Tests",
             dependencies: [
-                .product(name: "Spatial", package: "swift-spatial"),
+                "Axis Dimension",
+                .product(name: "Direction", package: "swift-direction"),
                 .product(name: "Axis", package: "swift-axis"),
             ]
         ),
